@@ -22,7 +22,7 @@
 #if defined(WIN32) && defined(DYNAMIC_BUILD)
 #define BUILD_MPG123_DLL
 #endif
-#include "compat.h"
+#include "..\compat\compat.h"
 #include "mpg123.h"
 
 #define SKIP_JUNK 1

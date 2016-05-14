@@ -1,0 +1,7 @@
+﻿*.vcxproj.user
+*.VC.db
+*.VC.opendb
+
+/ports/MSVC++/2015/libmpg123/Yasm/obj
+/ports/MSVC++/2015/libmpg123/obj
+/ports/MSVC++/2015/libmpg123/bin

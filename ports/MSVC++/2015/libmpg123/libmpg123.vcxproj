@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{67CAA87B-7CF1-4F93-BB67-21C513F40803}</ProjectGuid>
+    <RootNamespace>libmpg123</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)obj\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../..;../../../../src/libmpg123;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;DYNAMIC_BUILD;OPT_MULTI;OPT_GENERIC;OPT_I386;OPT_I586;OPT_MMX;OPT_3DNOW;OPT_3DNOWEXT;OPT_SSE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <PreLinkEvent>
+    </PreLinkEvent>
+    <Lib>
+      <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)Debug\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <Link>
+      <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct36_sse.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Yasm\obj\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../..;../../../../src/libmpg123;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;DYNAMIC_BUILD;OPT_X86_64;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <PreLinkEvent />
+    <Lib>
+      <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)Debug\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <Link>
+      <AdditionalDependencies>dct36_x86_64.o;dct64_x86_64.o;dct64_x86_64_float.o;getcpuflags_x86_64.o;synth_stereo_x86_64.o;synth_stereo_x86_64_float.o;synth_stereo_x86_64_s32.o;synth_x86_64.o;synth_x86_64_float.o;synth_x86_64_s32.o</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Yasm\obj\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>../..;../../../../src/libmpg123;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;DYNAMIC_BUILD;OPT_MULTI;OPT_GENERIC;OPT_I386;OPT_I586;OPT_MMX;OPT_3DNOW;OPT_3DNOWEXT;OPT_SSE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <PreLinkEvent>
+    </PreLinkEvent>
+    <Lib>
+      <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)Release\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)Yasm\obj\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct36_sse.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>../..;../../../../src/libmpg123;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;DYNAMIC_BUILD;OPT_X86_64;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <PreLinkEvent />
+    <Lib>
+      <AdditionalDependencies>dct36_3dnow.o;dct36_3dnowext.o;dct64_3dnow.o;dct64_3dnowext.o;dct64_mmx.o;dct64_sse.o;dct64_sse_float.o;equalizer_3dnow.o;getcpuflags.o;synth_3dnow.o;synth_3dnowext.o;synth_i586.o;synth_mmx.o;synth_sse.o;synth_sse_float.o;synth_stereo_sse_float.o;tabinit_mmx.o;synth_sse_accurate.o;synth_sse_s32.o;synth_stereo_sse_accurate.o;synth_stereo_sse_s32.o;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)Release\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>$(ProjectDir)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)Yasm\obj\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dct36_x86_64.o;dct64_x86_64.o;dct64_x86_64_float.o;getcpuflags_x86_64.o;synth_stereo_x86_64.o;synth_stereo_x86_64_float.o;synth_stereo_x86_64_s32.o;synth_x86_64.o;synth_x86_64_float.o;synth_x86_64_s32.o</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\libmpg123\compat.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\dct64.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\dct64_i386.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\dct64_i486.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\libmpg123\equalizer.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\feature.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\format.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\frame.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\icy.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\icy2utf8.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\id3.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\index.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\layer1.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\layer2.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\layer3.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\libmpg123.c" />
+    <ClCompile Include="..\..\msvc.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\ntom.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\optimize.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\parse.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\readers.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\stringbuf.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\synth.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\synth_8bit.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\synth_i486.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\libmpg123\synth_real.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\synth_s32.c" />
+    <ClCompile Include="..\..\..\..\src\libmpg123\tabinit.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\libmpg123\compat.h" />
+    <ClInclude Include="..\..\config.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\debug.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\decode.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\frame.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\getbits.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\getcpuflags.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\huffman.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\icy.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\icy2utf8.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\id3.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\index.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\l2tables.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\mangle.h" />
+    <ClInclude Include="..\..\mpg123.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\mpg123lib_intern.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\optimize.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\parse.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\reader.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\sample.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\synth.h" />
+    <ClInclude Include="..\..\..\..\src\libmpg123\true.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\src\libmpg123\check_neon.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct36_3dnow.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct36_3dnowext.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct36_avx.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct36_neon.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct36_neon64.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct36_sse.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct36_x86_64.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_3dnow.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_3dnowext.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_avx.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct64_avx_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct64_mmx.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_neon.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct64_neon64.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct64_neon64_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct64_neon_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\dct64_sse.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_sse_float.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_x86_64.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\dct64_x86_64_float.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\equalizer_3dnow.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\getcpuflags.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\getcpuflags_x86_64.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_3dnow.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_3dnowext.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_arm.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_arm_accurate.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_i586.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_i586_dither.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_mmx.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_neon.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon64.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon64_accurate.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon64_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon64_s32.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon_accurate.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_neon_s32.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_sse.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_sse_accurate.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_sse_float.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_sse_s32.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_avx.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_avx_accurate.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_avx_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_avx_s32.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon64.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon64_accurate.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon64_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon64_s32.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon_accurate.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon_float.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_neon_s32.S" />
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_sse_accurate.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_sse_float.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_sse_s32.S">
+      <Asmx86>True</Asmx86>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_x86_64.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_x86_64_accurate.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_x86_64_float.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_stereo_x86_64_s32.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_x86_64.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_x86_64_accurate.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_x86_64_float.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\synth_x86_64_s32.S">
+      <Asmx64>True</Asmx64>
+    </None>
+    <None Include="..\..\..\..\src\libmpg123\tabinit_mmx.S">
+      <Asmx86>True</Asmx86>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(ProjectDir)\Yasm\Yasm.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

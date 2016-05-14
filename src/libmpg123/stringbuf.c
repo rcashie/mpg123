@@ -9,7 +9,7 @@
 #include "mpg123lib_intern.h"
 #include "config.h"
 #include "mpg123.h"
-#include "compat.h"
+#include "..\compat\compat.h"
 #include <string.h>
 #include "debug.h"
 

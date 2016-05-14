@@ -28,7 +28,20 @@ typedef __int64 intmax_t;
 #define ftello ftell
 
 #define MPG123_NO_CONFIGURE
-#include "mpg123.h.in" /* Yes, .h.in; we include the configure template! */
+#include "..\..\src\libmpg123\mpg123.h.in" /* Yes, .h.in; we include the configure template! */
+
+#ifdef BUILD_MPG123_DLL
+/* The dll exports. */
+#define MPG123_EXPORT __declspec(dllexport)
+#else
+#ifdef LINK_MPG123_DLL
+/* The exe imports. */
+#define MPG123_EXPORT __declspec(dllimport)
+#else
+/* Nothing on normal/UNIX builds */
+#define MPG123_EXPORT
+#endif
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -42,5 +55,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#undef MPG123_EXPORT
 
 #endif

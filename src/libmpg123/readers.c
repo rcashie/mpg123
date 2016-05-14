@@ -23,7 +23,7 @@
 #include <io.h>
 #endif
 
-#include "compat.h"
+#include "..\compat\compat.h"
 #include "debug.h"
 
 static int default_init(mpg123_handle *fr);

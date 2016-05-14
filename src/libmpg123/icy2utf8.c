@@ -29,7 +29,7 @@
 #include "config.h"
 #include "intsym.h"
 /* Includes string and stdlib headers... */
-#include "compat.h"
+#include "..\compat\compat.h"
 
 /* ThOr: too lazy for this type check; also we use char/short all around anyway.
    Of cource, it would be the proper way to use _these_ kind of types all around. */

@@ -1,0 +1,42 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <Yasm>$(MSBuildThisFileDirectory)yasm.exe</Yasm>
+    <YasmOutDir>$(MSBuildThisFileDirectory)obj\$(Configuration)\$(Platform)</YasmOutDir>
+  </PropertyGroup>
+
+  <Target Name="ResolveAsmFiles">
+    <ItemGroup>
+      <AsmFile Include="@(None)" Condition="'%(None.Asmx86)' == 'True' and '$(Platform)'=='Win32'" />
+      <AsmFile Include="@(None)" Condition="'%(None.Asmx64)' == 'True' and '$(Platform)'=='x64'" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="BuildAssemblyFiles" DependsOnTargets="ResolveAsmFiles" BeforeTargets="Link" Inputs="@(AsmFile)" Outputs="$(YasmOutDir)\%(AsmFile.Filename).o">
+    
+    <!-- Make the output dir -->
+    <MakeDir Directories="$(YasmOutDir)" />
+
+    <!-- Pre process the file -->
+    <PropertyGroup>
+      <ClPlatform Condition="'$(Platform)'=='Win32'">_Win32</ClPlatform>
+      <ClPlatform Condition="'$(Platform)'=='x64'">_Win64</ClPlatform>
+    </PropertyGroup>
+    
+    <Exec Command="cl /I &quot;..\..&quot; /D &quot;$(ClPlatform)&quot; /EP /TC &quot;%(AsmFile.FullPath)&quot; /nologo &gt; &quot;$(YasmOutDir)\%(AsmFile.Filename).s&quot;" />
+
+    <!-- Assemble -->
+    <PropertyGroup>
+      <YasmFormat Condition="'$(Platform)'=='Win32'">win32</YasmFormat>
+      <YasmFormat Condition="'$(Platform)'=='x64'">win64</YasmFormat>
+      <YasmArch Condition="'$(Platform)'=='Win32'">x86</YasmArch>
+      <YasmArch Condition="'$(Platform)'=='x64'">amd64</YasmArch>
+    </PropertyGroup>
+
+    <Exec Command="$(Yasm) -a x86 -p gas -r raw -f $(YasmFormat) -g null -m $(YasmArch) -o &quot;$(YasmOutDir)\%(AsmFile.Filename).o&quot; &quot;$(YasmOutDir)\%(AsmFile.Filename).s&quot;" />
+  </Target>
+
+  <Target Name="CleanAssemblyOutput" DependsOnTargets="ResolveAsmFiles" BeforeTargets="Clean">
+    <Delete Files="$(YasmOutDir)\%(AsmFile.Filename).o;$(YasmOutDir)\%(AsmFile.Filename).s" />
+  </Target>
+</Project>
