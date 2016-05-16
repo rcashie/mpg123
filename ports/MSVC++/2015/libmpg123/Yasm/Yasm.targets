@@ -19,11 +19,11 @@
 
     <!-- Pre process the file -->
     <PropertyGroup>
-      <ClPlatform Condition="'$(Platform)'=='Win32'">_Win32</ClPlatform>
-      <ClPlatform Condition="'$(Platform)'=='x64'">_Win64</ClPlatform>
+      <PreProcessor Condition="'$(Platform)'=='Win32'">/D _Win32</PreProcessor>
+      <PreProcessor Condition="'$(Platform)'=='x64'">/D _Win64 /D __x86_64__</PreProcessor>
     </PropertyGroup>
     
-    <Exec Command="cl /I &quot;..\..&quot; /D &quot;$(ClPlatform)&quot; /EP /TC &quot;%(AsmFile.FullPath)&quot; /nologo &gt; &quot;$(YasmOutDir)\%(AsmFile.Filename).s&quot;" />
+    <Exec Command="cl /I &quot;..\..&quot; $(PreProcessor) /EP /TC &quot;%(AsmFile.FullPath)&quot; /nologo &gt; &quot;$(YasmOutDir)\%(AsmFile.Filename).s&quot;" />
 
     <!-- Assemble -->
     <PropertyGroup>
